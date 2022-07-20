@@ -17,30 +17,38 @@ const Home = () => {
   const [pendingTodo, setPendingTodo] = useState("");
 
   useEffect(() => {
-    addTodo({
-      uid: makeid(5),
-      task: "this is a dummy task that you see in the beginning",
-    });
+    addTodo(createTodo("this is a dummy task that you see in the beginning"));
   }, []);
 
   function createTodo(task) {
     return {
       uid: makeid(5),
       task,
+      done: false,
     };
   }
 
   function addTodo(todo) {
     setTodos([...todos, todo]);
+    console.log(todos);
   }
 
   function deleteTodo(todoItemUid) {
     setTodos([...todos.filter((todoItem) => todoItem.uid !== todoItemUid)]);
   }
 
-  function editTodo(todoItemUid, newTask) {
+  function toggleTodo(todoItemUid) {
     const newTodos = todos.map((todoItem) => ({ ...todoItem }));
+    for (let i = 0; i < newTodos.length; i++) {
+      if (newTodos[i].uid === todoItemUid) {
+        newTodos[i].done = !newTodos[i].done;
+      }
+    }
+    setTodos(newTodos);
+  }
 
+  function editTask(todoItemUid, newTask) {
+    const newTodos = todos.map((todoItem) => ({ ...todoItem }));
     for (let i = 0; i < newTodos.length; i++) {
       if (newTodos[i].uid === todoItemUid) {
         newTodos[i].task = newTask;
@@ -76,8 +84,9 @@ const Home = () => {
             key={todo.uid}
             uid={todo.uid}
             task={todo.task}
-            done={false}
+            done={todo.done}
             deleteTodo={deleteTodo}
+            toggleTodo={toggleTodo}
           />
         ))
       ) : (
