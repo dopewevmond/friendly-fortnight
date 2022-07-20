@@ -1,0 +1,24 @@
+.task-container {
+    width: 90%;
+    max-width: 500px;
+    padding: 20px 30px;
+    background-color: rgb(238, 238, 177);
+    position:relative;
+}
+.del-button {
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.del-button:hover {
+    background-color: rgb(255, 98, 98);
+    color: white;
+}
+.m-top {
+    margin-top: 20px;
+}

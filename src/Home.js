@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Task from "./Task";
 
 function makeid(length) {
   var result = "";
@@ -33,15 +34,15 @@ const Home = () => {
     setTodos([...todos, todo]);
   }
 
-  function deleteTodo(todo) {
-    setTodos(...todos.filter((todoItem) => todoItem.uid !== todo.uid));
+  function deleteTodo(todoItemUid) {
+    setTodos([...todos.filter((todoItem) => todoItem.uid !== todoItemUid)]);
   }
 
-  function editTodo(todo, newTask) {
+  function editTodo(todoItemUid, newTask) {
     const newTodos = todos.map((todoItem) => ({ ...todoItem }));
 
     for (let i = 0; i < newTodos.length; i++) {
-      if (newTodos[i].uid === todo.uid) {
+      if (newTodos[i].uid === todoItemUid) {
         newTodos[i].task = newTask;
       }
     }
@@ -69,13 +70,19 @@ const Home = () => {
         <button type="submit">Add todo</button>
       </form>
       <h3>{pendingTodo}</h3>
-      <ul>
-        {todos.length ? (
-          todos.map((todo) => <li key={todo.uid}>{todo.task}</li>)
-        ) : (
-          <></>
-        )}
-      </ul>
+      {todos.length ? (
+        todos.map((todo) => (
+          <Task
+            key={todo.uid}
+            uid={todo.uid}
+            task={todo.task}
+            done={false}
+            deleteTodo={deleteTodo}
+          />
+        ))
+      ) : (
+        <></>
+      )}
     </>
   );
 };
