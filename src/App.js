@@ -4,7 +4,7 @@ import Home from "./Home";
 const App = () => {
   return (
     <>
-      <h1>Do It</h1>;
+      <h1>Do It</h1>
       <Home />
     </>
   );
