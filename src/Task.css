@@ -5,20 +5,37 @@
     background-color: rgb(238, 238, 177);
     position:relative;
 }
+.task button {
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: auto;
+}
 .del-button {
     position: absolute;
     top: 20px;
     right: 5px;
     background-color: rgb(255, 0, 0);
     color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
 }
 .del-button:hover {
     background-color: rgb(255, 98, 98);
     color: white;
 }
+.edit-button {
+    position: absolute;
+    top: 20px;
+    right: 75px;
+    background-color: rgb(0, 255, 0);
+    color: white;
+}
+.edit-button:hover {
+    background-color: rgb(98, 255, 98);
+    color: white;
+}
 .m-top {
     margin-top: 20px;
+}
+.dont-show {
+    display: none;
 }

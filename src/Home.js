@@ -17,8 +17,8 @@ const Home = () => {
   const [pendingTodo, setPendingTodo] = useState("");
 
   useEffect(() => {
-    addTodo(createTodo("this is a dummy task that you see in the beginning"));
-  }, []);
+    addTodo(createTodo("task 1"));
+  }, []); //eslint-disable-line react-hooks/exhaustive-deps
 
   function createTodo(task) {
     return {
@@ -87,6 +87,7 @@ const Home = () => {
             done={todo.done}
             deleteTodo={deleteTodo}
             toggleTodo={toggleTodo}
+            editTask={editTask}
           />
         ))
       ) : (
