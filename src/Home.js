@@ -58,7 +58,7 @@ const Home = () => {
   }
 
   return (
-    <>
+    <div className="my-4">
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -66,18 +66,30 @@ const Home = () => {
           setPendingTodo("");
         }}
       >
-        <label>
-          <input
-            placeholder="Add a todo"
-            value={pendingTodo}
-            onChange={(e) => {
-              setPendingTodo(e.target.value);
-            }}
-          />
-        </label>
-        <button type="submit">Add todo</button>
+        <div className="flex flex-row">
+          <div className="basis-3/4">
+            <label className="w-full">
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                placeholder="Add a todo..."
+                value={pendingTodo}
+                onChange={(e) => {
+                  setPendingTodo(e.target.value);
+                }}
+              />
+            </label>
+          </div>
+          <div className="basis-1/12"></div>
+          <div className="basis-1/6">
+            <button
+              type="submit"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Add todo
+            </button>
+          </div>
+        </div>
       </form>
-      <h3>{pendingTodo}</h3>
       {todos.length ? (
         todos.map((todo) => (
           <Task
@@ -93,7 +105,7 @@ const Home = () => {
       ) : (
         <></>
       )}
-    </>
+    </div>
   );
 };
 

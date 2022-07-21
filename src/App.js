@@ -1,11 +1,14 @@
 import { render } from "react-dom";
 import Home from "./Home";
+import Navbar from "./Navbar";
 
 const App = () => {
   return (
     <>
-      <h1>Do It</h1>
-      <Home />
+      <Navbar />
+      <div className="container mx-auto px-8">
+        <Home />
+      </div>
     </>
   );
 };
