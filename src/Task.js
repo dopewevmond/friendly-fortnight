@@ -84,42 +84,6 @@ const Task = ({ uid, task, done, deleteTodo, toggleTodo, editTask }) => {
           </button>
         </div>
       </div>
-
-      {/* <div className="inline-flex items-center">
-        <input
-          className="w-8 h-8"
-          type="checkbox"
-          id={uid}
-          checked={done}
-          onChange={() => toggleTodo(uid)}
-        />
-        <label htmlFor={uid} ref={valTask}>
-          {task}
-        </label>
-        <button className="del-button" onClick={() => deleteTodo(uid)}>
-          Delete
-        </button>
-
-        <div className={beingEdited ? "" : "dont-show"}>
-          <label>
-            Change to:
-            <input type="text" ref={valNewTask} />
-          </label>
-          <button className="confirm-edit-button" onClick={updateTaskRef}>
-            Update
-          </button>
-          <button className="cancel-button" onClick={() => setEdited(false)}>
-            Cancel
-          </button>
-        </div>
-
-        <button
-          className={beingEdited ? "dont-show" : "edit-button"}
-          onClick={copyTaskToEdit}
-        >
-          Edit
-        </button>
-      </div> */}
     </>
   );
 };
